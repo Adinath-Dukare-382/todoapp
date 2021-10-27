@@ -6,7 +6,7 @@ variables:
  - name: ProjectSearchPath
    value: ToDoList
  - name: 'solutionName'
-   value: ToDoList.sln,ToDoListUI.csproj
+   value: ToDoList.sln
  - name: zipName
    value: todolist
 
@@ -26,11 +26,11 @@ stages:
               # vstsFeed: '1b38962d-9be0-4287-a101-a6420bcafb67'
 
           - task: DotNetCoreCLI@2
-            displayName: Publish - $(solutionName)
+            displayName: Publish - $(ProjectName)
             inputs:
               command: 'publish'
               publishWebProjects: false
-              projects: '$(solutionName)'
+              projects: '**\$(solutionName)'
               arguments: '--configuration Release /p:DebugType=None /p:DebugSymbols=false --output $(Build.SourcesDirectory)\Build\zip\$(zipName) -v d'
               modifyOutputPath: false
               zipAfterPublish: true
