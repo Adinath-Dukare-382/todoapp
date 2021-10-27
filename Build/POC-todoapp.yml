@@ -1,0 +1,57 @@
+variables:
+ - group: POH-Fortify-ProjectID
+ - name: ProjectName
+   value: AllergyIntolerance
+   
+trigger:
+  branches:
+    include:
+      - development
+      - main
+      - Feature_*
+      - feature_*
+  paths:
+    include:
+     - Source/AllergyIntolerance/*
+    exclude:
+      - Build/*
+      - Source/AllergyIntolerance/Database/*
+      - Source/AutoTesting/SPF/*
+      - .gitattributes
+      - .gitignore
+      - README.md
+pr:
+  branches:
+    include:
+      - development
+      - main
+      - Feature_*
+      - feature_*
+  paths:
+    include:
+     - Source/AllergyIntolerance/*
+    exclude:
+      - Build/*
+      - Source/AllergyIntolerance/Database/*
+      - Source/AutoTesting/SPF/*
+      - .gitattributes
+      - .gitignore
+      - README.md
+
+#https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml
+schedules:
+- cron: "30 18 * * Mon,Wed"         #Runs Every Tuesday & Thursday At 12:00 AM (00:00) IST
+  displayName: Scheduled Trigger
+  branches:
+    include:
+    - development
+
+extends: 
+  template: ..\Templates\build.yml
+  parameters:
+    projectName: $(ProjectName)
+    solutionName: Sunrise.Fhir.$(ProjectName).sln
+    testProject: Sunrise.Fhir.$(ProjectName).Tests.sln
+    projectSearchPath: Source/$(ProjectName)
+    zipName: Fhir$(ProjectName)WebApi
+    projectVersionID: $(AllergyIntolerance)
