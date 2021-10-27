@@ -6,7 +6,6 @@ variables:
  - name: ProjectSearchPath
    value: ToDoList
  - name: 'solutionName'
-   default: '**\*.sln,**\*.csproj'
    value: ToDoList.sln,ToDoListUI.csproj
  - name: zipName
    value: todolist
