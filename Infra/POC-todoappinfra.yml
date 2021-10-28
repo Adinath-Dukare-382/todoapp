@@ -14,7 +14,7 @@ pool: SamplePool
 steps:
 - checkout: self
 - checkout: MyGitHubRepo
-- template: Template/terraform_deply.yml
+- template: Template/terraform_deploy.yml
   parameters:
      environment: "$(env)"
      working_dir: "$(Build.SourcesDirectory)/pocenvgroup/Infra/environments"
