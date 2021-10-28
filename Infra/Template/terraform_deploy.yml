@@ -27,6 +27,30 @@ parameters:
     type: string
 
 steps:
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: 'Visual Studio Professional Subscription(36e17b0a-f140-42b7-933a-03495cc621b2)'
+      scriptType: 'ps'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+                $appservicePlan = $(az appservice plan list --query "[?tags.env=='${{parameters.environment}}']" | ConvertFrom-Json)
+                $fileName = "${{parameters.working_dir}}/terraform.tfvars.json"
+                $data = @{}
+                $apps = @{}
+                $app = @{}
+
+                $app.Add("app_name","${{parameters.project_name}}")
+                $app.Add("version","${{parameters.varsion}}")
+                $apps.Add("app",$app)
+
+                $data.Add("plan_id",$appservicePlan.id)
+                $data.Add("location",$appservicePlan.location)
+                $data.Add("resource_group_name",$appservicePlan.resourceGroup)
+                $data.Add("env","${{parameters.environment}}")
+                $data.Add("apps",$apps)
+                $data.Add("tags",$appservicePlan.tags)
+                $data | ConvertTo-Json | set-content -Path $fileName
+
   - task: TerraformCLI@0
     displayName: "terraform init"
     enabled: true
