@@ -11,8 +11,7 @@ resources:
 
 pool: SamplePool
 
-stages:
-- stage:
+steps:
     - checkout: self
     - checkout: MyGitHubRepo
     - template: Template/terraform_deploy.yml
