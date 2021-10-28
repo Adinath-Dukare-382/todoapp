@@ -1,0 +1,27 @@
+trigger: none
+pr: none
+
+resources:
+  repositories:
+  - repository: MyGitHubRepo 
+    type: github
+    endpoint: githubserviceconnection
+    name: Adinath-Dukare-382/pocenvgroup
+    ref: master
+
+pool: SamplePool
+
+steps:
+- checkout: self
+- checkout: MyGitHubRepo
+- template: Template/terraform_deply.yml
+  parameters:
+     environment: "$(env)"
+     working_dir: "$(Build.SourcesDirectory)/pocenvgroup/Infra"
+     serviceconn_name: "Visual Studio Professional Subscription(36e17b0a-f140-42b7-933a-03495cc621b2)"
+     project_name: "$(project)"
+     azureRmContainerName: "globalstoragecon2"
+     tfstatefile: "todoapp.tfstate"
+     tfresourcegroupname: "config-demo2"
+     tfstorageaccountname: "globalstorageac"
+
