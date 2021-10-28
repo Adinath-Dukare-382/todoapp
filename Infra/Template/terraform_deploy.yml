@@ -40,7 +40,7 @@ steps:
                 $app = @{}
 
                 $app.Add("app_name","${{parameters.project_name}}")
-                $app.Add("version","${{parameters.varsion}}")
+                $app.Add("version","${{parameters.version}}")
                 $apps.Add("app",$app)
 
                 $data.Add("plan_id",$appservicePlan.id)
