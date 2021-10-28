@@ -4,6 +4,9 @@ parameters:
 
   - name: working_dir
     type: string
+    
+  - name: version
+    type: string
 
   - name: project_name
     type: string
