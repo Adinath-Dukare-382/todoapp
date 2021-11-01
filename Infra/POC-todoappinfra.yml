@@ -25,4 +25,3 @@ steps:
          tfstatefile: "todoapp.tfstate"
          tfresourcegroupname: "config-demo2"
          tfstorageaccountname: "globalstorageac"
-

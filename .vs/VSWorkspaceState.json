@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Infra\\Template",
-    "\\source"
+    "\\Build",
+    "\\Infra",
+    "\\Infra\\modules",
+    "\\Infra\\Template"
   ],
-  "SelectedNode": "\\source\\HelloWorld.sln",
+  "SelectedNode": "\\Build\\build.yml",
   "PreviewInSolutionExplorer": false
 }
