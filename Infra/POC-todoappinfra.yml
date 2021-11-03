@@ -24,6 +24,11 @@ pr:
       - Deploy/*
 
 resources:
+  pipelines:
+   - pipeline: mypipeline
+     source: BuildFortodoapp
+     trigger: true
+     
   repositories:
   - repository: MyGitHubRepo 
     type: github
