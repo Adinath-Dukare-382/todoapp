@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Build",
     "\\Infra",
-    "\\Infra\\modules",
     "\\Infra\\Template"
   ],
-  "SelectedNode": "\\Build\\build.yml",
+  "SelectedNode": "\\Infra\\POC-todoappinfra.yml",
   "PreviewInSolutionExplorer": false
 }
