@@ -1,4 +1,8 @@
-trigger: none
+trigger:
+  branches:
+    include:
+      - development
+      - master
 pr: none
 
 resources:
