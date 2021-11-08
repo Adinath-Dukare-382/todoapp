@@ -55,3 +55,10 @@ steps:
     PathtoPublish: '$(Build.SourcesDirectory)\Build\zip\todoapp'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
+- task: PowerShell@2
+  displayName: 'trigger for relase pipeline'
+  inputs:
+    targetType: 'inline'
+    script: 'Write-Host ""#vso[build.addbuildtag]trigger"'
+  condition: and(succeeded(),in(variables['Build.reason'],'IndivisualCI','Pullrequest'))
