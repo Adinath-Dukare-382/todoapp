@@ -2,6 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\Infra",
+    "\\Infra\\environments",
     "\\Infra\\Template"
   ],
   "SelectedNode": "\\Infra\\POC-todoappinfra.yml",

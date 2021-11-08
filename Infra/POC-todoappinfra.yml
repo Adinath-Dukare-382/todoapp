@@ -49,6 +49,6 @@ steps:
          project_name: "$(project)"
          version: "$(version)"
          azureRmContainerName: "globalstoragecon2"
-         tfstatefile: "todoapp.tfstate"
+         tfstatefile: "todoapp-$(env).tfstate"
          tfresourcegroupname: "config-demo2"
          tfstorageaccountname: "globalstorageac"
