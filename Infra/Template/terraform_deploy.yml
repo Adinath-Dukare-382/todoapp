@@ -60,15 +60,22 @@ steps:
       azureSubscription: 'Visual Studio Professional Subscription(36e17b0a-f140-42b7-933a-03495cc621b2)'
       scriptType: 'ps'
       scriptLocation: 'inlineScript'
-      inlineScript: 'terraform init -migrate-state'
+      inlineScript: 'terraform init -reconfigure'
       workingDirectory: ${{ parameters.working_dir }}
+
+  - task: TerraformCLI@0
+    displayName: "terraform init"
+    enabled: true
+    inputs:
+      command: "init"
       backendServiceArm: ${{ parameters.serviceconn_name }}
       backendType: "azurerm"
       backendAzureRmResourceGroupName: ${{ parameters.tfresourcegroupname }}
       backendAzureRmStorageAccountName: ${{ parameters.tfstorageaccountname }}
       backendAzureRmContainerName: ${{ parameters.azureRmContainerName }}
       backendAzureRmKey: ${{ parameters.tfstatefile }}
-
+      allowTelemetryCollection: true
+      workingDirectory: ${{ parameters.working_dir }}
               
   - task: TerraformCLI@0
     displayName: "terraform plan"
