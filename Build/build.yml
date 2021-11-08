@@ -61,4 +61,4 @@ steps:
   inputs:
     targetType: 'inline'
     script: 'Write-Host ""#vso[build.addbuildtag]trigger"'
-  condition: and(succeeded(),in(variables['Build.reason'],'IndivisualCI','Pullrequest'))
+  condition: and(succeeded(),in(variables['Build.reason'],'IndividualCI','PullRequest'))
