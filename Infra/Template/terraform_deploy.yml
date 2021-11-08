@@ -58,7 +58,7 @@ steps:
     displayName: "terraform init"
     enabled: true
     inputs:
-      command: "init"
+      command: "init -migrate-state"
       backendServiceArm: ${{ parameters.serviceconn_name }}
       backendType: "azurerm"
       backendAzureRmResourceGroupName: ${{ parameters.tfresourcegroupname }}
