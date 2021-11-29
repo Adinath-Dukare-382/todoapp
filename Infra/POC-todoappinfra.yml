@@ -1,27 +1,27 @@
-trigger:
-  branches:
-    include:
-      - development
-      - master
-  paths:
-    include:
-     - source/*
-    exclude:
-      - Build/*
-      - Infra/*
-      - Deploy/*
-pr:
-  branches:
-    include:
-      - development
-      - master
-  paths:
-    include:
-     - source/*
-    exclude:
-      - Build/*
-      - Infra/*
-      - Deploy/*
+trigger: none
+  # branches:
+  #   include:
+  #     - development
+  #     - master
+  # paths:
+  #   include:
+  #    - source/*
+  #   exclude:
+  #     - Build/*
+  #     - Infra/*
+  #     - Deploy/*
+pr: none
+  # branches:
+  #   include:
+  #     - development
+  #     - master
+  # paths:
+  #   include:
+  #    - source/*
+  #   exclude:
+  #     - Build/*
+  #     - Infra/*
+  #     - Deploy/*
 
 resources:
   pipelines:
