@@ -19,7 +19,7 @@ jobs:
     - name: Test
       run: dotnet test --no-restore --verbosity normal
     - name: Publish
-      run: dotnet publish MyApp.sln --configuration Release --framework netcoreapp3.1 --output ./publish --runtime win-x86  --self-contained true -p:PublishTrimmed=true -p:PublishSingleFile=true
+      run: dotnet publish HelloWorld.sln --configuration Release --framework netcoreapp3.1 --output ./publish --runtime win-x86  --self-contained true -p:PublishTrimmed=true -p:PublishSingleFile=true
 
 
 
