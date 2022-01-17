@@ -1,0 +1,26 @@
+name: BuildAndTest
+
+on:
+  push:
+    branches: [ main ]
+#   pull_request:
+#     branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build with dotnet
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
+    - name: Publish
+      run: dotnet publish MyApp.sln --configuration Release --framework netcoreapp3.1 --output ./publish --runtime win-x86  --self-contained true -p:PublishTrimmed=true -p:PublishSingleFile=true
+
+
+
+
