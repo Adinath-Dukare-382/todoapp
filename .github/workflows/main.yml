@@ -22,6 +22,9 @@ jobs:
 #             azure-devops-token: ${{ secrets.PAT_AZURE_TOKEN }}
         - name: testname
           shell: pwsh
-          run: | 
-            Invoke-Pester test.ps1 -Passthru
+          run: |
+            echo "Adinath"
+            echo "Dukare"
+            ${{ github.workspace }}\test.ps1
+
           
