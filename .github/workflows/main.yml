@@ -22,5 +22,6 @@ jobs:
 #             azure-devops-token: ${{ secrets.PAT_AZURE_TOKEN }}
         - name: testname
           shell: pwsh
-          run: ${{ github.workspace }}/test.ps1
+          run: | 
+            ./test.ps1
           
