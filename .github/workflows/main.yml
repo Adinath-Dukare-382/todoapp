@@ -23,5 +23,5 @@ jobs:
         - name: testname
           shell: pwsh
           run: | 
-            ./test.ps1
+            ${{ github.workspace }}/test.ps1
           
