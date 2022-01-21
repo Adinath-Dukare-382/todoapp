@@ -21,6 +21,6 @@ jobs:
             echo "Dukare"
             ls
             echo ${{ github.workspace }}
-            ../test.ps1
+            test.ps1
 
           
