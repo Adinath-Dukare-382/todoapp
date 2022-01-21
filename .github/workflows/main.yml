@@ -1,36 +1,38 @@
-# name: CI
+name: CI
 
-# # Run this workflow every time a commit gets pushed to main or a pull request gets opened against main
-# on:
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-#     branches: 
-#       - main
+# Run this workflow every time a commit gets pushed to main or a pull request gets opened against main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: 
+      - main
 
-# jobs:
-#     build:
-#         name: Call Azure Pipeline
-#         runs-on: windows-2019
-#         steps:
-#           - name: testname
-#             shell: pwsh
-#             run: |
-#               echo "Adinath"
-#               echo "Dukare"
-#               ./test.ps1
+jobs:
+    build:
+      - name: Call Azure Pipeline
+        runs-on: windows-2019
+        steps:
+          - name: Check out repo        
+            uses: actions/checkout@v2
+          - name: testname
+            shell: pwsh
+            run: |
+              echo "Adinath"
+              echo "Dukare"
+              ./test.ps1
 
           
-name: MetaData
-on: push
-jobs:
-  MetaDataStage:
-    runs-on: windows-2019
-    steps:
-      - name: Check out repo        
-        uses: actions/checkout@v2
-      - name: JSON
-        shell: pwsh
-        run: |
-          ./test.ps1
+# name: MetaData
+# on: push
+# jobs:
+#   MetaDataStage:
+#     runs-on: windows-2019
+#     steps:
+#       - name: Check out repo        
+#         uses: actions/checkout@v2
+#       - name: JSON
+#         shell: pwsh
+#         run: |
+#           ./test.ps1
