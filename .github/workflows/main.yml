@@ -11,17 +11,17 @@ on:
 
 jobs:
     build:
-      - name: Call Azure Pipeline
-        runs-on: windows-2019
-        steps:
-          - name: Check out repo        
-            uses: actions/checkout@v2
-          - name: testname
-            shell: pwsh
-            run: |
-              echo "Adinath"
-              echo "Dukare"
-              ./test.ps1
+      name: Call Azure Pipeline
+      runs-on: windows-2019
+      steps:
+        - name: Check out repo        
+          uses: actions/checkout@v2
+        - name: testname
+          shell: pwsh
+          run: |
+            echo "Adinath"
+            echo "Dukare"
+            ./test.ps1
 
           
 # name: MetaData
