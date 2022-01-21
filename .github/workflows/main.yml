@@ -19,6 +19,7 @@ jobs:
           run: |
             echo "Adinath"
             echo "Dukare"
+            ls
             echo ${{ github.workspace }}
             ./test.ps1
 
