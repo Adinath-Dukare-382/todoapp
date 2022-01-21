@@ -19,6 +19,6 @@ jobs:
             run: |
               echo "Adinath"
               echo "Dukare"
-              ../test.ps1
+              test.ps1
 
           
