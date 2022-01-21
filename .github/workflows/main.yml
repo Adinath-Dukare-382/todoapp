@@ -14,13 +14,11 @@ jobs:
         name: Call Azure Pipeline
         runs-on: windows-latest
         steps:
-        - name: testname
-          shell: pwsh
-          run: |
-            echo "Adinath"
-            echo "Dukare"
-            ls
-            echo ${{ github.workspace }}
-            test.ps1
+          - name: testname
+            shell: pwsh
+            run: |
+              echo "Adinath"
+              echo "Dukare"
+              ./test.ps1
 
           
